@@ -10,13 +10,13 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 ## Declare ROS messages and services
-add_message_files(
-  FILES
-)
+# add_message_files(
+#   FILES
+# )
 
-add_service_files(
-  FILES
-)
+# add_service_files(
+#   FILES
+# )
 
 ## Generate added messages and services
 generate_messages(
@@ -40,26 +40,26 @@ include_directories(
 # add_dependencies(talker week12_generate_messages_cpp)
 
 
-if(CATKIN_ENABLE_TESTING)
+# if(CATKIN_ENABLE_TESTING)
   
-  find_package(rostest REQUIRED)
+#   find_package(rostest REQUIRED)
 
-  add_rostest_gtest(
-  rosTest
+#   add_rostest_gtest(
+#   rosTest
 #   test/test.launch
 #   test/main.cpp
 #   test/test.cpp
-  )
+#   )
 
-  target_link_libraries(
-  rosTest
-  ${catkin_LIBRARIES}
-  )
+#   target_link_libraries(
+#   rosTest
+#   ${catkin_LIBRARIES}
+#   )
 
-  add_dependencies(
-#   talker
-  rosTest
-  ${catkin_EXPORTED_TARGETS}
-  )
+#   add_dependencies(
+# #   talker
+#   rosTest
+#   ${catkin_EXPORTED_TARGETS}
+#   )
   
-endif()
+# endif()
