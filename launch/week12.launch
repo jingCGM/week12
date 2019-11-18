@@ -8,7 +8,6 @@
     <arg name="world_name" value="$(arg world_file)" />
   </include>
 
-
   <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find week12)/models/turtlebot2/turtlebot.urdf.xacro'"/>
   <arg name="ns"        default="turtlebot"/>
   <arg name="x"         default="0"/>
@@ -29,9 +28,15 @@
   </node>
 
   <node pkg="laser_filters" type="scan_to_scan_filter_chain"
-  name="filter_chain" ns="$(arg ns)">
+        name="filter_chain" ns="$(arg ns)">
     <rosparam command="load" file="$(find week12)/models/turtlebot2/sensors/config.yaml" />
   </node>
 
+  <node pkg="week12" name="navigation" type="week12" />
+
+  <arg name = "ifRecord" default= "false" />
+  <node pkg="rosbag" name="record" type="record"
+        args="-a -x /camera/(.*) --duration=15 -O $(find week12)/results/output.bag"
+        if="$(arg ifRecord)" />
 
 </launch>
