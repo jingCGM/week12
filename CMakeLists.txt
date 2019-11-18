@@ -19,10 +19,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-)
+# generate_messages(
+#   DEPENDENCIES
+#   std_msgs
+# )
 
 ## Declare a catkin package
 catkin_package(
@@ -32,12 +32,12 @@ catkin_package(
 
 ## Build talker and listener
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
-# add_executable(talker src/talker.cpp)
-# target_link_libraries(talker ${catkin_LIBRARIES})
-# add_dependencies(talker week12_generate_messages_cpp)
+add_executable(week12 src/navigation.cpp)
+target_link_libraries(week12 ${catkin_LIBRARIES})
 
 
 # if(CATKIN_ENABLE_TESTING)

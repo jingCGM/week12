@@ -11,20 +11,31 @@
  */
 
 #include <ros/ros.h>
+#include <math.h>
 #include <sensor_msgs/LaserScan.h>
 #include <geometry_msgs/Twist.h>
 
 
 
-class Navigation() {
+class Navigation {
  private:
-    ros::init("week12");
-    ros::Subscriber scanSubscriber;
-    ros::Publisher velocityPublisher;
-    geometry_msgs::Twist vel;
-    std::vector<double> ranges
+    ros::NodeHandle nh;
+
+    ros::Subscriber scanSubscribe = nh.subscribe<sensor_msgs::LaserScan>("/turtlebot/scan_filtered", 10, &Navigation::scanCallback,this);
+    ros::Publisher velocityPublisher = nh.advertise<geometry_msgs::Twist>("/turtlebot/cmd_vel_mux/input/navi",10);
+
+    geometry_msgs::Twist velocityForward, velocityRotate;
+
+    int rangeSize = round(512/3);
+    float maxDistance = 4.0;
+
 
  public:
+    /**
+     * @brief constructor of Navigation defining velocities of forward and rotate
+     */
+    Navigation();
+
     /**
      * @brief scanCallback function is callback function when receiving
      *        scan data.
@@ -37,7 +48,7 @@ class Navigation() {
      *        rotate when front is not clear.
      */
     void run();
-}
+};
 
 
 #endif  // NAVIGATION_HPP_
