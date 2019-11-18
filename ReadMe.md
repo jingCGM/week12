@@ -52,12 +52,12 @@ Following instructions bring up gazebo simulator and play rosbag
 
 In one terminal:
 ```
-	roscd week12
-	rosbag play ./results/output.bag
+	roslaunch week12 base.launch
 ```
 In another terminal:
 ```
-	roslaunch week12 base.launch
+	roscd week12
+	rosbag play ./results/output.bag
 ```
 
 ## Notes:
