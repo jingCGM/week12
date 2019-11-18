@@ -7,9 +7,40 @@ This project use Gazebo and ros to navigation robot to empty space.
 
 
 ## Required packages:
+c++ 11
 ros-kinetic
 gazebo
 nodelet
 laser_filters
 turtlebot
 turtlebot_simulator
+
+
+## Build Instructions
+```
+cd ~
+mkdir catkin_ws
+cd catkin_ws
+mkdir src
+cd src
+git clone https://github.com/jingCGM/week12.git
+cd week12
+git checkout Week12_HW
+cd ../../
+catkin_make
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+```
+
+## Run launch files:
+Launch file brings up designed gazebo environment and also Navigation node. If customer wants to record a rosbag in 15s, then use ifRecord parameter:
+
+Run files without recording:
+```
+	roslaunch week12 week12.launch ifRecord:=false
+```
+
+Run files with recording:
+```
+	roslaunch week12 week12.launch ifRecord:=true
+```
+

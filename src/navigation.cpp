@@ -1,3 +1,12 @@
+/**Copyright (c) 2019 Jing Liang
+ * @file       navigation.cpp
+ * @date       11/16/2019
+ * @brief      The project can roam robot in one scenario. When robot face
+ *             obstacles in front, it will rotate until front is clear and
+ *             keep moving. This file is used to bring up the class Navigation
+ * @license    This project is released under the BSD-3-Clause License.
+ */
+
 #include <navigation.hpp>
 
 Navigation::Navigation() {
@@ -23,6 +32,12 @@ void Navigation::run() {
     }
 }
 
+/**
+ * @brief    main function
+ * @param    argc int
+ * @param    argv char array
+ * @return   0
+ */
 int main(int argc, char **argv){
     ros::init(argc, argv, "week12");
     Navigation navigate;
