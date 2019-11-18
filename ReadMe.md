@@ -5,6 +5,8 @@
 ## Overview
 This project use Gazebo and ros to navigation robot to empty space.
 
+After cloned the repository, go to results folder and unzip output.bag.zip file in results folder.
+
 
 ## Required packages:
 c++ 11
