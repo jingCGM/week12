@@ -1,0 +1,11 @@
+<launch>
+  <include file="$(find week12)/launch/base.launch" />
+
+  <node pkg="week12" name="navigation" type="week12" />
+
+  <arg name = "ifRecord" default= "false" />
+  <node pkg="rosbag" name="record" type="record"
+        args="-a -x /camera/(.*) --duration=15 -O $(find week12)/results/output.bag"
+        if="$(arg ifRecord)" />
+
+</launch>
