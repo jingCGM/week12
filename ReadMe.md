@@ -44,5 +44,19 @@ Run files with recording:
 	roslaunch week12 week12.launch ifRecord:=true
 ```
 
+
+## Play rosbag:
+Following instructions bring up gazebo simulator and play rosbag
+
+In one terminal:
+```
+	roscd week12
+	rosbag play ./results/output.bag
+```
+In another terminal:
+```
+	roslaunch week12 base.launch
+```
+
 ## Notes:
 I wrote lidar sensor for turtlebot so launch file uses my self-defined model of turtlebot
