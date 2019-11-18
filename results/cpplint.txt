@@ -1,0 +1,7 @@
+cpplint ./src/* ./include/*
+Done processing ./src/navigation.cpp
+./include/navigation.hpp:26:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+./include/navigation.hpp:27:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+./include/navigation.hpp:28:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+Done processing ./include/navigation.hpp
+Total errors found: 3

@@ -1,5 +1,5 @@
-#ifndef NAVIGATION_HPP_
-#define NAVIGATION_HPP_
+#ifndef INCLUDE_NAVIGATION_HPP_
+#define INCLUDE_NAVIGATION_HPP_
 
 /**Copyright (c) 2019 Jing Liang
  * @file       navigation.hpp
@@ -15,19 +15,22 @@
 #include <sensor_msgs/LaserScan.h>
 #include <geometry_msgs/Twist.h>
 
-
-
+/**
+ * @brief Class Navigation is used to subscribe sensor data, detect if there would be
+ *        collision in front, and also publish velocities to drive robot rotate or forward
+ */
 class Navigation {
  private:
     ros::NodeHandle nh;
 
-    ros::Subscriber scanSubscribe = nh.subscribe<sensor_msgs::LaserScan>("/turtlebot/scan_filtered", 10, &Navigation::scanCallback,this);
-    ros::Publisher velocityPublisher = nh.advertise<geometry_msgs::Twist>("/turtlebot/cmd_vel_mux/input/navi",10);
+    // created subscriber and publisher to receive sensor data and publish velocities
+    ros::Subscriber scanSubscribe = nh.subscribe<sensor_msgs::LaserScan>("/turtlebot/scan_filtered", 10, &Navigation::scanCallback, this);
+    ros::Publisher velocityPublisher = nh.advertise<geometry_msgs::Twist>("/turtlebot/cmd_vel_mux/input/navi", 10);
 
     geometry_msgs::Twist velocityForward, velocityRotate;
 
-    int rangeSize = round(512/3);
-    float maxDistance = 4.0;
+    int rangeSize = round(512/3);  // used for choosing part of sensor range
+    float minDistance = 4.0;  // used to record
 
 
  public:
@@ -51,4 +54,4 @@ class Navigation {
 };
 
 
-#endif  // NAVIGATION_HPP_
+#endif  // INCLUDE_NAVIGATION_HPP_

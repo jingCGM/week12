@@ -44,3 +44,5 @@ Run files with recording:
 	roslaunch week12 week12.launch ifRecord:=true
 ```
 
+## Notes:
+I wrote lidar sensor for turtlebot so launch file uses my self-defined model of turtlebot
