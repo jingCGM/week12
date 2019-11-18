@@ -4,3 +4,12 @@
 ---
 ## Overview
 This project use Gazebo and ros to navigation robot to empty space.
+
+
+## Required packages:
+ros-kinetic
+gazebo
+nodelet
+laser_filters
+turtlebot
+turtlebot_simulator
